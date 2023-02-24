@@ -12,13 +12,13 @@ import { Register } from "./pages/Register";
 
 function App() {
   return (
-    <div>
+    <div className="App">
       <Router>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
-          <Route path ="/register" element={<Register/>}/>
+          <Route path="/register" element={<Register />} />
           <Route path="/open" element={<OpenPage />} />
           <Route path="/admins" element={<AdminsOnlyPage />} />
           <Route path="/logged" element={<LoggedOnlyPage />} />

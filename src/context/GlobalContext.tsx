@@ -24,7 +24,7 @@ export const GlobalContextProvider = (props: PropsWithChildren) => {
     type: "user",
     pass: "2",
   };
-  const [loggedUser, setLoggedUser] = useState<any>(admin1);
+  const [loggedUser, setLoggedUser] = useState<any>(null);
 
   return (
     <GlobalContext.Provider

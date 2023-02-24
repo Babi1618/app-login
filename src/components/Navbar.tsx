@@ -17,7 +17,6 @@ export const Navbar = () => {
             <Link to="/admins">Admin</Link>
           </li>
         )}
-
         {loggedUser && (
           <li>
             <Link to="/logged">Only Logged</Link>
