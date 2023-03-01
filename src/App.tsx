@@ -13,26 +13,25 @@ import { useGlobalContext } from "./context/GlobalContext";
 import useFakeData from "./utils/useFakeData";
 
 function App() {
-  const { userLogged } = useGlobalContext() as any;
-  const users = useFakeData()
+  const { loggedUser } = useGlobalContext() as any;
+  const { users } = useFakeData() as any;
 
-  useEffect(()=>{
-  console.log(users)
-  },[users])
+  useEffect(() => {
+    console.log(users);
+    console.log(loggedUser);
+  }, [users]);
   return (
     <div className="App">
       <Router>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          {!userLogged && (
-            <>
-              <Route path="/login" element={<Login />} />
-              <Route path="/register" element={<Register />} />
-            </>
-          )}
-          {userLogged && <Route path="/logged" element={<LoggedOnlyPage />} />}
-          {userLogged && userLogged.type === "admin" && (
+
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<Register />} />
+
+          {loggedUser && <Route path="/logged" element={<LoggedOnlyPage />} />}
+          {loggedUser && loggedUser.type === "admin" && (
             <Route path="/admins" element={<AdminsOnlyPage />} />
           )}
           <Route path="/open" element={<OpenPage />} />

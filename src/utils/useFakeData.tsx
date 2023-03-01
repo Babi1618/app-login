@@ -29,6 +29,7 @@ const useFakeData = () => {
         img: `https://randomuser.me/api/portraits/${
           gender === "female" ? `women` : `men`
         }/${index + 1}.jpg`,
+        phone:faker.phone.number('+39 3## ## ## ###')
       };
       employees.push(singleUser);
     }
@@ -39,7 +40,7 @@ const useFakeData = () => {
     setUsers(createFakeUsers());
   }, [createFakeUsers]);
 
-  return [data, users];
+  return {data, users};
 };
 
 export default useFakeData;
