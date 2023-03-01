@@ -12,7 +12,6 @@ import { Register } from "./pages/Register";
 import { useGlobalContext } from "./context/GlobalContext";
 
 function App() {
-  const { loggedUser, users } = useGlobalContext() as any;
 
   return (
     <div className="App">

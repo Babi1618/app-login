@@ -4,7 +4,6 @@ import {
   useCallback,
   useContext,
   useEffect,
-  useReducer,
   useState,
 } from "react";
 import { fetchData } from "../utils/api";
