@@ -10,16 +10,15 @@ import { LoggedOnlyPage } from "./pages/LoggedsOnlyPage";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { useGlobalContext } from "./context/GlobalContext";
-import useFakeUsers from "./utils/useFakeData";
+import useFakeData from "./utils/useFakeData";
 
 function App() {
   const { userLogged } = useGlobalContext() as any;
+  const users = useFakeData()
 
-  const data = useFakeUsers();
-  useEffect(() => {
-    console.log(data);
-  }, []);
-
+  useEffect(()=>{
+  console.log(users)
+  },[users])
   return (
     <div className="App">
       <Router>
