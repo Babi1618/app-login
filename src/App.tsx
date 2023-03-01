@@ -13,7 +13,7 @@ import { useGlobalContext } from "./context/GlobalContext";
 
 function App() {
   const { loggedUser, users } = useGlobalContext() as any;
-  console.log("prova", users);
+
   return (
     <div className="App">
       <Router>

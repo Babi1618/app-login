@@ -1,15 +1,12 @@
 import { useState } from "react";
 import { useGlobalContext } from "../context/GlobalContext";
-import mockUsers from "../mock/mockUsers.json";
-import { LoggedOnlyPage } from "./LoggedsOnlyPage";
+
 export const Login = () => {
   const [name, setName] = useState("");
   const [pass, setPass] = useState("");
-
-  const { setLoggedUser, loggedUser } = useGlobalContext() as any;
+  const { setLoggedUser, loggedUser, users } = useGlobalContext() as any;
 
   const handleClick = () => {
-    const { users } = mockUsers;
     const userLogged = users.reduce((acc: any, next: any) => {
       if (next.name === name && next.pass === pass) {
         acc = next;
