@@ -10,9 +10,7 @@ export const Login = () => {
 
   const handleClick = () => {
     const { users } = mockUsers;
-    console.log(users, name, pass);
     const userLogged = users.reduce((acc: any, next: any) => {
-      console.log(acc, next);
       if (next.name === name && next.pass === pass) {
         acc = next;
       }
@@ -24,19 +22,17 @@ export const Login = () => {
   };
 
   return (
-    <div className=" section login-section">
+    <div className="section login-section">
       <div className="login-container">
         {!loggedUser && (
           <div className="login-content">
             <div className="section-title">Login</div>
             <div>
               <div>Name</div>
-
               <input onChange={(e) => setName(e.target.value)} />
             </div>
             <div>
               <div>Password</div>
-
               <input onChange={(e) => setPass(e.target.value)} />
             </div>
             <button onClick={() => handleClick()}>Click</button>

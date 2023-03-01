@@ -9,8 +9,11 @@ import { AdminsOnlyPage } from "./pages/AdminsOnlyPage";
 import { LoggedOnlyPage } from "./pages/LoggedsOnlyPage";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
+import { useGlobalContext } from "./context/GlobalContext";
 
 function App() {
+  const { loggedUser, users } = useGlobalContext() as any;
+  console.log("prova", users);
   return (
     <div className="App">
       <Router>

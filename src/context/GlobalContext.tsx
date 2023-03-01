@@ -10,28 +10,31 @@ export const GlobalContext = createContext({});
 
 export const GlobalContextProvider = (props: PropsWithChildren) => {
   const hello = "ciao";
-
-  const admin1 = {
-    id: 1,
-    name: "Gino",
-    type: "admin",
-    pass: "1",
-  };
-
-  const user1 = {
-    id: 2,
-    name: "Lillo",
-    type: "user",
-    pass: "2",
-  };
+  const url = "http://localhost:3004/users";
   const [loggedUser, setLoggedUser] = useState<any>(null);
 
+  const [users, setUsers] = useState([]);
+
+  const fetchData = async (url: string) => {
+    const res = await fetch(`${url}`).then((res) => res.json());
+    return res;
+  };
+  const getUsers = async (url: string) => {
+    const res = await fetchData(url);
+    // console.log(res);
+    setUsers(res)
+  };
+
+  useEffect(() => {
+    getUsers(url);
+  }, []);
   return (
     <GlobalContext.Provider
       value={{
         hello,
         loggedUser,
         setLoggedUser,
+        users
       }}
     >
       {props.children}
