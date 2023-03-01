@@ -12,18 +12,24 @@ import { Register } from "./pages/Register";
 import { useGlobalContext } from "./context/GlobalContext";
 
 function App() {
-
+  const { userLogged } = useGlobalContext() as any;
   return (
     <div className="App">
       <Router>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/register" element={<Register />} />
+          {!userLogged && (
+            <>
+              <Route path="/login" element={<Login />} />
+              <Route path="/register" element={<Register />} />
+            </>
+          )}
+          {userLogged && <Route path="/logged" element={<LoggedOnlyPage />} />}
+          {userLogged && userLogged.type === "admin" && (
+            <Route path="/admins" element={<AdminsOnlyPage />} />
+          )}
           <Route path="/open" element={<OpenPage />} />
-          <Route path="/admins" element={<AdminsOnlyPage />} />
-          <Route path="/logged" element={<LoggedOnlyPage />} />
           <Route path="*" element={<div>Error</div>} />
         </Routes>
       </Router>

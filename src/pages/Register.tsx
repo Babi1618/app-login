@@ -1,6 +1,10 @@
+import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { useGlobalContext } from "../context/GlobalContext";
 
 export const Register = () => {
+  const [open, setOpen] = useState(true);
+  const { setLoggedUser } = useGlobalContext() as any;
   const {
     register,
     handleSubmit,
@@ -21,7 +25,10 @@ export const Register = () => {
       body: JSON.stringify(obj),
     })
       .then((response) => response.json())
-      .then((data) => console.log(data))
+      .then((data) => {
+        setOpen(false);
+        setLoggedUser(obj);
+      })
       .catch((error) => console.log(error));
   };
 
@@ -30,18 +37,22 @@ export const Register = () => {
       <div className="login-container">
         <div className="login-content">
           <div className="section-title">Register</div>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <div>
-              <div>Name</div>
-              <input {...register("name")} />
-            </div>
-            <div>
-              <div>Password</div>
-              <input {...register("pass", { required: true })} />
-            </div>
-            {errors.exampleRequired && <div>This field is required</div>}
-            <input type="submit" />
-          </form>
+          {open ? (
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <div>
+                <div>Name</div>
+                <input {...register("name", { required: true })} />
+              </div>
+              <div>
+                <div>Password</div>
+                <input {...register("pass", { required: true })} />
+              </div>
+              {errors.exampleRequired && <div>This field is required</div>}
+              <input type="submit" />
+            </form>
+          ) : (
+            <div>Registrazione avvenuta con successo </div>
+          )}
         </div>
       </div>
     </div>
