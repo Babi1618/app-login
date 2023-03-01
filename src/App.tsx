@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import { Home } from "./pages/Home";
@@ -10,9 +10,16 @@ import { LoggedOnlyPage } from "./pages/LoggedsOnlyPage";
 import { Login } from "./pages/Login";
 import { Register } from "./pages/Register";
 import { useGlobalContext } from "./context/GlobalContext";
+import useFakeUsers from "./utils/useFakeData";
 
 function App() {
   const { userLogged } = useGlobalContext() as any;
+
+  const data = useFakeUsers();
+  useEffect(() => {
+    console.log(data);
+  }, []);
+
   return (
     <div className="App">
       <Router>
