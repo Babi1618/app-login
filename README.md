@@ -1,3 +1,9 @@
+WELCOME!!!
+You can find fake-server (using json-server) here: https://github.com/Babi1618/fake-server
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
