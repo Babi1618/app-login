@@ -18,8 +18,7 @@
       "type": "customer",
       "password": "1",
       "sex": "male",
-      "birthdate": "1985-07-07T03:46:04.889Z",
-      "pass": "2"
+      "birthdate": "1985-07-07T03:46:04.889Z"
     }
   ]
 }

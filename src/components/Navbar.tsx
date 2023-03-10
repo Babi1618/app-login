@@ -32,7 +32,7 @@ export const Navbar = () => {
       <ul>
         {loggedUser ? (
           <div>
-            <span>{loggedUser.name}</span>
+            Ciao <span>{loggedUser.name}</span>
           </div>
         ) : (
           <>
