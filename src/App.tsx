@@ -24,6 +24,7 @@ function App() {
     <div className="App">
       <Router>
         <Navbar />
+        <div className="main-section">
         <Routes>
           <Route path="/" element={<Home />} />
 
@@ -37,6 +38,7 @@ function App() {
           <Route path="/open" element={<OpenPage />} />
           <Route path="*" element={<div>Error</div>} />
         </Routes>
+        </div>
       </Router>
     </div>
   );

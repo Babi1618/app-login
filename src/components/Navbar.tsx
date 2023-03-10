@@ -1,11 +1,17 @@
 import { Link } from "react-router-dom";
 import { useGlobalContext } from "../context/GlobalContext";
+import brand from "../assets/my_brand.png";
 
 export const Navbar = () => {
   const { loggedUser } = useGlobalContext() as any;
   return (
     <nav>
       <ul>
+        <li>
+          <div id="brand-image">
+            <img src={brand} alt="brand" />
+          </div>
+        </li>
         <li>
           <Link to="/">Home</Link>
         </li>
@@ -26,7 +32,7 @@ export const Navbar = () => {
       <ul>
         {loggedUser ? (
           <div>
-            ciao <span>{loggedUser.name}</span>
+            <span>{loggedUser.name}</span>
           </div>
         ) : (
           <>

@@ -16,20 +16,22 @@ const useFakeData = () => {
       if (index < 3) {
         type = "admin";
       }
+      const name = faker.name.firstName(gender);
       const singleUser = {
         id: index,
-        first_name: faker.name.firstName(gender),
+        username: `${name}${index}`,
+        name: name,
         last_name: faker.name.lastName(),
-        email: faker.internet.email(),
+        // email: faker.internet.email(),
         password: faker.internet.password(),
         type: type,
         // type: faker.helpers.arrayElement(["admin", "customer"]),
         sex: gender,
         birthdate: faker.date.birthdate({ min: 18, max: 65, mode: "age" }),
-        img: `https://randomuser.me/api/portraits/${
-          gender === "female" ? `women` : `men`
-        }/${index + 1}.jpg`,
-        phone:faker.phone.number('+39 3## ## ## ###')
+        // img: `https://randomuser.me/api/portraits/${
+        //   gender === "female" ? `women` : `men`
+        // }/${index + 1}.jpg`,
+        // phone: faker.phone.number("+39 3## ## ## ###"),
       };
       employees.push(singleUser);
     }
@@ -40,7 +42,7 @@ const useFakeData = () => {
     setUsers(createFakeUsers());
   }, [createFakeUsers]);
 
-  return {data, users};
+  return { data, users };
 };
 
 export default useFakeData;

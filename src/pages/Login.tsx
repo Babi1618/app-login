@@ -8,7 +8,7 @@ export const Login = () => {
 
   const handleClick = () => {
     const userLogged = users.reduce((acc: any, next: any) => {
-      if (next.name === name && next.pass === pass) {
+      if (next.username === name && next.password === pass) {
         acc = next;
       }
       return acc;

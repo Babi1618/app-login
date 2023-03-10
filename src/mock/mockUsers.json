@@ -2,15 +2,15 @@
   "users": [
     {
       "id": 1,
-      "name": "Gino",
+      "username": "Gino",
       "type": "admin",
-      "pass": "1"
+      "password": "1"
     },
     {
       "id": 2,
-      "name": "Lillo",
+      "username": "Lillo",
       "type": "user",
-      "pass": "2"
+      "password": "2"
     }
   ]
 }
