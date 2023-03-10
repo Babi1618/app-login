@@ -41,11 +41,11 @@ export const Register = () => {
             <form onSubmit={handleSubmit(onSubmit)}>
               <div>
                 <div>Name</div>
-                <input {...register("name", { required: true })} />
+                <input {...register("username", { required: true })} />
               </div>
               <div>
                 <div>Password</div>
-                <input {...register("pass", { required: true })} />
+                <input {...register("password", { required: true })} />
               </div>
               {errors.exampleRequired && <div>This field is required</div>}
               <input type="submit" />
