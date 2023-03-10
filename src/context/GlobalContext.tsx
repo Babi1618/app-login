@@ -17,7 +17,6 @@ export const GlobalContextProvider = (props: PropsWithChildren) => {
   const [users, setUsers] = useState<any>([]);
 
   const getUsers = useCallback(async (url: string) => {
-    // console.log(mockUser);
     const res = await fetchData(url);
     setUsers([...mockUser.users, ...res]);
   }, []);

@@ -1,9 +1,10 @@
 import { faker } from "@faker-js/faker";
 import { useState, useEffect, useCallback } from "react";
 
+
+//for making mocked data used in json server 
 const useFakeData = () => {
   type genderType = "female" | "male";
-  const [data, setData] = useState("prova");
   const [users, setUsers] = useState<any>([]);
   const createFakeUsers = useCallback(() => {
     let employees = [];
@@ -25,7 +26,6 @@ const useFakeData = () => {
         // email: faker.internet.email(),
         password: faker.internet.password(),
         type: type,
-        // type: faker.helpers.arrayElement(["admin", "customer"]),
         sex: gender,
         birthdate: faker.date.birthdate({ min: 18, max: 65, mode: "age" }),
         // img: `https://randomuser.me/api/portraits/${
@@ -42,7 +42,7 @@ const useFakeData = () => {
     setUsers(createFakeUsers());
   }, [createFakeUsers]);
 
-  return { data, users };
+  return { users };
 };
 
 export default useFakeData;
