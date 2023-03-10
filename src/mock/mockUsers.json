@@ -3,14 +3,23 @@
     {
       "id": 1,
       "username": "Gino",
+      "name": "Gino",
+      "last_name": "Rossi",
       "type": "admin",
-      "password": "1"
+      "password": "1",
+      "sex": "male",
+      "birthdate": "1987-06-05T03:46:04.889Z"
     },
     {
       "id": 2,
       "username": "Lillo",
-      "type": "user",
-      "password": "2"
+      "name": "Lillo",
+      "last_name": "Verdi",
+      "type": "customer",
+      "password": "1",
+      "sex": "male",
+      "birthdate": "1985-07-07T03:46:04.889Z",
+      "pass": "2"
     }
   ]
 }

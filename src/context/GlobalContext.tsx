@@ -17,7 +17,7 @@ export const GlobalContextProvider = (props: PropsWithChildren) => {
   const [users, setUsers] = useState<any>([]);
 
   const getUsers = useCallback(async (url: string) => {
-    console.log(mockUser);
+    // console.log(mockUser);
     const res = await fetchData(url);
     setUsers([...mockUser.users, ...res]);
   }, []);
@@ -25,7 +25,9 @@ export const GlobalContextProvider = (props: PropsWithChildren) => {
   useEffect(() => {
     getUsers(url);
   }, [getUsers]);
-
+  useEffect(() => {
+    console.log(users);
+  }, [users]);
   return (
     <GlobalContext.Provider
       value={{
